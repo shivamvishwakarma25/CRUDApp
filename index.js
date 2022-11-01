@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var User = require('./models/indexx')
+var User = require('./models/index')
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser') 
 const HTTP = require('http')
@@ -41,13 +41,12 @@ app.get('/delete/:id',async function(req,res){
   res.redirect('/show')
  })
 
-app.get('/show',doEverythingInOneBigFunctionWithAsyncBranchesfunction)
-function a(req,res){
+app.get('/show',function(req,res){
   User.find({},function(err,result){
-    res.render('show',{users:result});  
+    res.render('show',{users:result});
 
   })
-}
+})
 
 app.get('/',function(req,res){
 res.render('insert');
