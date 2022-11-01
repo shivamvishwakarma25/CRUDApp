@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
-var User = require('./models/index')
+var User = require('./models/indexx')
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser') 
+const HTTP = require('http')
 const PORT = process.env.PORT ||3000;
 
 app.use(bodyParser.urlencoded({extended:true}));
