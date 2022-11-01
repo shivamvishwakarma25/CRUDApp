@@ -41,12 +41,13 @@ app.get('/delete/:id',async function(req,res){
   res.redirect('/show')
  })
 
-app.get('/show',function(req,res){
+app.get('/show',doEverythingInOneBigFunctionWithAsyncBranchesfunction)
+function a(req,res){
   User.find({},function(err,result){
-    res.render('show',{users:result});
+    res.render('show',{users:result});  
 
   })
-})
+}
 
 app.get('/',function(req,res){
 res.render('insert');
