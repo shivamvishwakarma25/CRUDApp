@@ -25,8 +25,8 @@ mongoose.connect(
 
 app.set('view engine','ejs');
 
-app.post('/update/:id',async function(req,res){
-  await User.findByIdAndUpdate(req.params.id,req.body);
+app.post('/update/:id',function(req,res){
+  User.findByIdAndUpdate(req.params.id,req.body);
  res.redirect('/show');
 })
 
@@ -36,12 +36,12 @@ app.get('/edit/:id',function(req,res){
   })
 })
 
-app.get('/delete/:id',async function(req,res){
-  await User.findByIdAndDelete(req.params.id)
+app.get('/delete/:id',function(req,res){
+  User.findByIdAndDelete(req.params.id)
   res.redirect('/show')
  })
 
-app.get('/show',function a(req,res){
+app.get('/show',function(req,res){
   User.find({},function(err,result){
     res.render('show.ejs',{users:result});
 
