@@ -27,12 +27,12 @@ app.set('view engine','ejs');
 
 app.post('/update/:id',async function(req,res){
   await User.findByIdAndUpdate(req.params.id,req.body);
- res.redirect('show');
+ res.redirect('/show');
 })
 
 app.get('/edit/:id',function(req,res){
   User.findById(req.params.id,function(err,result){
-    res.render('edit',{users: result});
+    res.render('/edit',{users: result});
   })
 })
 
@@ -43,13 +43,13 @@ app.get('/delete/:id',async function(req,res){
 
 app.get('/show',function a(req,res){
   User.find({},function(err,result){
-    res.render('show',{users:result});
+    res.render('/show',{users:result});
 
   })
 })
 
 app.get('/',function(req,res){
-res.render('insert');
+res.render('/insert');
 })
 
 app.post('/insert',function(req,res){
