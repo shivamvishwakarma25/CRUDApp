@@ -41,11 +41,8 @@ app.get('/delete/:id',async function(req,res){
   res.redirect('/show')
  })
 
-app.get('/show',function a(req,res){
-  User.find({},function(err,result){
-    res.render('show.ejs',{users:result});
-
-  })
+app.get('/show',function(req,res){
+res.render('show.ejs');
 })
 app.get('/',function(req,res){
 res.render('insert');
